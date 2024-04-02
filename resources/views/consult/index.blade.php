@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title', 'Riwayat Asesmen')
+@section('title', $title)
 
 @section('content')
 

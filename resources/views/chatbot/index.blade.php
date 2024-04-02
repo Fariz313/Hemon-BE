@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title', 'Chatbot')
+@section('title', $title)
 
 @section('add_head_script')
     <link rel="stylesheet" href="{{ asset('css/chat.css') }}">
