@@ -10,7 +10,7 @@
     
         
     <div class="col-md-3">
-        <div class="card text-white bg-info" style="margin: 1rem;">
+        <div class="card" style="margin: 1rem;">
             <div class="card-body">
                 <h2 class="card-title">Konsul dengan dr.Sayid</h2>
                 <p class="card-text">dr.Sayid adalah dokter telyu</p>
@@ -20,14 +20,14 @@
                     <input type="hidden" name="user_email" value="user@mail.com">
                     <input type="hidden" name="doctor_email" value="doctor@mail.com">
                     <input type="hidden" name="me" value="User">
-                    <button type="submit">Mulai Chat</button>
+                    <button type="submit" class="btn" style="background-color: #49B5D8;">Mulai Chat</button>
                 </form>
 
             </div>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card text-white bg-info" style="margin: 1rem;">
+        <div class="card" style="margin: 1rem;">
             <div class="card-body">
                 <h2 class="card-title">Konsul dengan User Rama</h2>
                 <p class="card-text">Rama adalah mahasiswa</p>
@@ -37,7 +37,7 @@
                     <input type="hidden" name="user_email" value="user@mail.com">
                     <input type="hidden" name="doctor_email" value="doctor@mail.com">
                     <input type="hidden" name="me" value="Doctor">
-                    <button type="submit">Mulai Chat</button>
+                    <button type="submit" class="btn" style="background-color: #49B5D8;">Mulai Chat</button>
                 </form>
 
             </div>
