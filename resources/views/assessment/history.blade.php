@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title', 'Riwayat Asesmen')
+@section('title', $title)
 
 @section('content')
 
@@ -13,7 +13,7 @@
         
         <div class="col-md-3">
             <div class="card text-white bg-info" style="margin: 1rem;">
-                <div class="card-header">{{ $a->created_at }}</div>
+                <div class="card-header">{{ $a->created_at->setTimezone('Asia/Jakarta') }}</div>
                 <div class="card-body">
                     <h2 class="card-title">{{ $a->result }}</h2>
                     <p class="card-text">Umur: {{ $a->age }}</p>

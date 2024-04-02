@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Chatbot;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Http;
+
 class ChatbotController extends Controller
 {
     /**
@@ -41,10 +43,35 @@ class ChatbotController extends Controller
         $chat = new Chatbot;
 
         $chat->message = $request->message;
-        $chat->reply = 'Tetap jaga kesehatan ya!';
-        $chat->user_email = 'user@mail.com';
 
-        $chat->save();
+        $payload = [
+            [
+                "content" => "Hello! I'm an AI assistant bot based on ChatGPT 3. How may I help you?",
+                "role" => "system"
+            ],
+            [
+                "content" => $request->message . "beri jawaban ringkas maksimal 50 kata",
+                "role" => "user"
+            ]
+        ];
+
+        $response = Http::withHeaders([
+            'X-RapidAPI-Host' => 'chatgpt-api8.p.rapidapi.com',
+            'X-RapidAPI-Key' => '9888ae6205msh1b5dce721476836p14a267jsnc4bd7c0890c2',
+            'content-type' => 'application/json',
+        ])->post('https://chatgpt-api8.p.rapidapi.com/', $payload);
+
+        
+        $chat->user_email = 'user@mail.com';
+        if($response->ok()) {
+            $chat->reply = $response['text'];
+            $chat->save();
+        } else {
+            $chat->reply = 'Mohon maaf, layanan chatbot sedang tidak dapat digunakan';
+        }
+        
+
+        
 
         return redirect('/chatbot');
     }
