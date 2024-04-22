@@ -1,0 +1,17 @@
+html {
+    min-height: 100vh;
+}
+
+.bg-primary-h {
+    background-color: #49B5D8 !important;
+}
+
+.text-primary-h {
+    color: #49B5D8 !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .img-width-max-md{
+        width: 200px;
+    }
+}
