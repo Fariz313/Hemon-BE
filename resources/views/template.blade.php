@@ -42,6 +42,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/tracking">Tracking</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout" style="margin-left: 850px;">Logout</a>
+                </li>
             </ul>
         </div>
     </nav>

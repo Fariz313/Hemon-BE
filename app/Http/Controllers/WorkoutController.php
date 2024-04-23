@@ -15,7 +15,7 @@ class WorkoutController extends Controller
     {
         //
 
-        $finished_list = Workout::whereDate('created_at', now()->today())->where('user_email', 'user@mail.com')->orderBy('created_at', 'DESC')->get();
+        $finished_list = Workout::whereDate('created_at', now()->today())->where('user_email', auth()->user()->email)->orderBy('created_at', 'DESC')->get();
 
         $workout_list = [
             ['id' => 0, 'name' => 'Jogging', 'desc' => 'Jogging selama 5 menit', 'img' => 'https://2.bp.blogspot.com/--4qsVwYbk2Q/WE6bylC7aAI/AAAAAAAAAYE/KL_j4wysgjg8rETNEbw-raysztDDtbvTgCLcB/s1600/jogging-006.jpg'],
@@ -49,7 +49,7 @@ class WorkoutController extends Controller
         //
 
         $finished_workout = Workout::whereDate('created_at', now()->today())->where([
-            ['user_email', '=', 'user@mail.com'],
+            ['user_email', '=', auth()->user()->email],
             ['workout_id', '=', $request->workout_id],
         ])->first();
 
@@ -60,7 +60,7 @@ class WorkoutController extends Controller
         $workout = new Workout;
 
         $workout->workout_id = $request->workout_id;
-        $workout->user_email = 'user@mail.com';
+        $workout->user_email = auth()->user()->email;
 
         $workout->save();
 

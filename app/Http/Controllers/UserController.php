@@ -30,6 +30,7 @@ class UserController extends Controller
             'title' => 'Riwayat Asesmen'
         ]);
     }
+    
     function logged(Request $request) {
     }
     /**

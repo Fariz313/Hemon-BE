@@ -15,7 +15,7 @@ class AssessmentController extends Controller
     {
         //
 
-        $assessments = Assessment::orderBy('created_at', 'DESC')->get();
+        $assessments = Assessment::orderBy('created_at', 'DESC')->where('user_email', auth()->user()->email)->get();
         return view('assessment.history', [
             'title' => 'Riwayat Asesmen',
             'assessments' => $assessments,
@@ -54,11 +54,8 @@ class AssessmentController extends Controller
         $assessment->blood_sugar = $request->blood_sugar;
         $assessment->result = 'Positif';
         
-        if(!isset($request->user_email)){
-            $assessment->user_email = 'user@mail.com';
-        } else {
-            $assessment->user_email = $request->user_email;
-        }
+        
+        $assessment->user_email = auth()->user()->email;
 
         $assessment->save();
 
