@@ -30,6 +30,7 @@ class WorkoutController extends Controller
             'title' => 'Senam',
             'workout_list' => $workout_list,
             'finished_list' => $finished_list,
+            'user' => auth()->user(),
         ]);
     }
 
@@ -87,6 +88,7 @@ class WorkoutController extends Controller
             'title' => 'Senam',
             'workout_details' => $workout_details,
             'id' => $id,
+            'user' => auth()->user(),
         ]);
     }
 

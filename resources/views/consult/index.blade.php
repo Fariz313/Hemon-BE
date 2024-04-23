@@ -4,6 +4,8 @@
 
 @section('content')
 
+@section('user_name', $user->name)
+
     @csrf
 
     <div class="row justify-content-left">

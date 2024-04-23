@@ -8,6 +8,8 @@
 
 @section('content')
 
+@section('user_name', $user->name)
+
 <section class="msger">
   <header class="msger-header">
     <div class="msger-header-title">
@@ -31,7 +33,7 @@
         </div>
 
         <div class="msg-text">
-          Hi, welcome to Hemon Chatbot! Go ahead and send me a message. 😄
+          Hai, selamat datang di Hemon Chatbot! Selamat berkonsultasi. 😄
         </div>
 
         

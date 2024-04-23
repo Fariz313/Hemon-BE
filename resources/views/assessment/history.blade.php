@@ -1,6 +1,7 @@
 @extends('template')
 
 @section('title', $title)
+@section('user_name', $user->name)
 
 @section('content')
 

@@ -100,7 +100,10 @@ class ConsultController extends Controller
 
     public function start(Request $request)
     {
-        $chats = Consult::where('user_email', $request->user_email)->get();
+        $chats = Consult::where([
+            ['user_email', '=', $request->user_email],
+            ['doctor_email', '=', $request->doctor_email],
+        ])->get();
 
         return view('consult.start', [
             'title' => 'Konsultasi',
@@ -108,6 +111,7 @@ class ConsultController extends Controller
             'doctor_email' => $request->doctor_email,
             'me' => auth()->user()->role,
             'chats' => $chats,
+            'user' => auth()->user(),
         ]);
     }
 }

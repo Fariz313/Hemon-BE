@@ -1,0 +1,20 @@
+.head {
+    text-align: left;
+    margin-left: 220px;
+    font-family: "Josefin Sans";
+    font-weight: bold;
+    color: #49B5D8;
+}
+
+.left-align {
+    text-align: left;
+    margin-left: 215px;
+    font-family: "Josefin Sans";
+    font-weight: normal;
+}
+
+.image-section {
+    margin-left: 700px;
+    top: 130px;
+    position: absolute; 
+}

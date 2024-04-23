@@ -1,0 +1,41 @@
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand {
+    margin-left: 40px;  
+}
+
+
+.navbar-nav {
+    font-family: "Josefin Sans";
+    margin-right: 40px;
+}
+
+a.nav-link{
+    color: #49B5D8;
+}
+
+.container .row{
+    margin-left: -80px;
+    font-family: "Josefin Sans";
+}
+.head1 {
+    margin-top: 8rem;
+    font-weight:bold;
+    color: black;
+    font-size: 45px;
+}
+
+.txt {
+    margin-top: 1rem;
+    font-weight:bolder;
+    font-size: 15px;
+}
+
+.image-section {
+    margin-left: 870px;
+    top: 110px;
+    position: absolute; 
+}
+

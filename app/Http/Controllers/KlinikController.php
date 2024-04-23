@@ -15,7 +15,8 @@ class KlinikController extends Controller
         $clinics=Clinic::get();
         return view('map.klinik', [
             'title' => 'Klinik Terdekat',
-            'clinics'=>$clinics
+            'clinics'=> $clinics,
+            'user' => auth()->user(),
         ]);
     }
 

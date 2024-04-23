@@ -2,6 +2,7 @@
 @extends('template')
 
 @section('title', $title)
+@section('user_name', $user->name)
 @section('add_head_script')
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
