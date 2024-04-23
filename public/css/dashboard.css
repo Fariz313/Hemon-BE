@@ -1,0 +1,98 @@
+.head1 {
+    margin-top: 4rem;
+    margin-left: 75px;
+    font-family: "Josefin Sans";
+    font-weight:bold;
+    color: #49B5D8;
+    font-size: 50px;
+}
+
+.head2 {
+    margin-bottom: 1rem;
+    margin-left: 75px;
+    font-family: "Josefin Sans";
+    font-weight:bolder;
+    font-size: 30px;
+}
+
+.txt {
+    margin-top: 1rem;
+    margin-left: 75px;
+    font-family: "Josefin Sans";
+    font-weight: normal;
+    font-size: 15px;
+}
+
+.image-section1 {
+    margin-left: 800px;
+    top: 130px;
+    position: absolute; 
+}
+
+.image-section2 {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.image-section3{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.container {
+    text-align: center;
+    margin-left: 60px;
+}
+
+.texts {
+    display: flex;
+    margin-bottom: -10px;
+    font-family: "Josefin Sans";
+    
+}
+.texts .texts1{
+    font-size:larger;
+}
+
+.texts .texts2{
+    margin-left: 88px;
+    font-size:larger;
+}
+
+.boxes {
+    display: flex;
+    margin-left: -12px;
+    font-family: "Josefin Sans";
+}
+
+.box {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    flex-wrap: nowrap;
+    flex: 1;
+    max-width: calc(20% - 10px);
+    border: 1px solid #BEBEBE;
+    color: #000;
+    margin: 15px;
+    border-radius: 20px;
+}
+
+.box img {
+    margin-left: 15px;
+}
+
+.box p {
+    margin-right: 15px; 
+    margin-top: 15px;
+    order: 1; 
+}
+
+
+.box:hover {
+    background-color: #ccc;
+}
+
+

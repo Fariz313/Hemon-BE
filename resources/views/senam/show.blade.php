@@ -1,11 +1,12 @@
 @extends('template')
 
 @section('title', $title)
+@section('user_name', $user->name)
 
 @section('content')
 
-    <h2 style="margin: 1rem; color: #49B5D8;">Lakukan Gerakan dengan Baik dan Benar</h2>
-    <p style="margin-left: 1rem; color: #49B5D8;">Semangat bapak, ibu, adik, kakak! Semoga sehat selalu :D</p>
+    <h2 style="margin: 1rem; color: black;">Lakukan Gerakan dengan Baik dan Benar</h2>
+    <p style="margin-left: 1rem; color: #AAAAAA;">Semangat {{ $user->name }}! Semoga sehat selalu :D</p>
 
     <div class="position-relative">
         <div class="row position-absolute top-50 start-50 translate-middle">

@@ -2,10 +2,12 @@
 
 @section('title', $title)
 
+@section('user_name', $user->name)
+
 @section('content')
 
-    <h2 style="margin: 1rem; color: #49B5D8;">Kumpulan Gerakan Senam Jantung</h2>
-    <p style="margin-left: 1rem; color: #49B5D8;">Lakukan gerakan senam secara baik dan benar</p>
+    <h2 style="margin: 1rem; color: black;">Kumpulan Gerakan Senam Jantung</h2>
+    <p style="margin-left: 1rem; color: #AAAAAA;">Lakukan gerakan senam secara baik dan benar</p>
 
     <div class="row justify-content-left">
 

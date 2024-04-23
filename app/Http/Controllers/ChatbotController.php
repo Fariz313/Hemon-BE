@@ -51,7 +51,7 @@ class ChatbotController extends Controller
                 "role" => "system"
             ],
             [
-                "content" => $request->message . "beri jawaban ringkas maksimal 50 kata",
+                "content" => $request->message . "beri jawaban ringkas maksimal 30 kata",
                 "role" => "user"
             ]
         ];

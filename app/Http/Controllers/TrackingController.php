@@ -12,7 +12,8 @@ class TrackingController extends Controller
     public function index()
     {
         return view('map.track', [
-            'title' => 'Tracking Lari'
+            'title' => 'Tracking Lari',
+            'user' => auth()->user(),
         ]);
     }
 

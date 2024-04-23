@@ -15,6 +15,14 @@ Route::get('/', function () {
 });
 
 
+Route::get('/', function () {
+    return view('splash');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
 Route::get('login', [UserController::class,'login'])->name('login');
 Route::post('login', [UserAuthController::class,'login']);
 Route::get('logout', [UserAuthController::class,'logout']);

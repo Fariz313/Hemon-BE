@@ -36,7 +36,7 @@ class UserAuthController extends Controller
             $request->session()->regenerate();
  
             // return redirect()->intended('dashboard');
-            return redirect()->intended('assessment');
+            return redirect()->intended('dashboard');
         }
  
         return back()->withErrors([
