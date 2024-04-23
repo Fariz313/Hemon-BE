@@ -35,12 +35,18 @@ class UserAuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect()->intended('dashboard');
+            // return redirect()->intended('dashboard');
+            return redirect()->intended('assessment');
         }
  
         return back()->withErrors([
             'email' => 'Maaf Email atau Password Anda Salah!',
         ])->onlyInput('email');
 
+    }
+
+    public function logout() {
+        Auth::logout();
+        return redirect('/login');
     }
 }

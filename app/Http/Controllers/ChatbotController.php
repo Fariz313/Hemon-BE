@@ -21,6 +21,7 @@ class ChatbotController extends Controller
         return view('chatbot.index', [
             'title' => 'Chatbot',
             'chats' => $chats,
+            'user' => auth()->user(),
         ]);
     }
 
@@ -62,7 +63,7 @@ class ChatbotController extends Controller
         ])->post('https://chatgpt-api8.p.rapidapi.com/', $payload);
 
         
-        $chat->user_email = 'user@mail.com';
+        $chat->user_email = auth()->user()->email;
         if($response->ok()) {
             $chat->reply = $response['text'];
             $chat->save();

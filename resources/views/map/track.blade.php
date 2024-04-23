@@ -1,7 +1,7 @@
 
 @extends('template')
 
-@section('title', 'Register')
+@section('title', $title)
 @section('add_head_script')
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />

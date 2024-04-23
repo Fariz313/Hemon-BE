@@ -40,7 +40,7 @@
 
           <div class="msg-bubble">
             <div class="msg-info">
-              @if($me == 'Doctor')
+              @if($me == 'doctor')
                 <div class="msg-info-name">User</div>
               @else
                 <div class="msg-info-name">Dokter</div>
@@ -60,6 +60,9 @@
   <form method="post" action="/consult" class="msger-inputarea">
     @csrf
     <input type="hidden" name="sender_role" value="{{ $me }}">
+    <input type="hidden" name="user_email" value="{{ $user_email }}">
+    <input type="hidden" name="doctor_email" value="{{ $doctor_email }}">
+
     <input type="text" class="msger-input" placeholder="Enter your message..." name="message">
     <button type="submit" class="msger-send-btn">Send</button>
   </form>
