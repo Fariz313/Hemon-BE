@@ -1,0 +1,25 @@
+* [33m3cbb91f[m[33m ([m[1;36mHEAD -> [m[1;32mhawari[m[33m, [m[1;31morigin/hawari[m[33m)[m update kecil-kecilan
+*   [33me2544fe[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge pull request #4 from Fariz313/hawari
+[32m|[m[33m\[m  
+[32m|[m * [33m354f21d[m user dedicated features
+[32m|[m[32m/[m  
+* [33me24dd5f[m Update Fariz 23042024
+*   [33me5910e4[m Merge pull request #3 from Fariz313/hawari
+[34m|[m[35m\[m  
+[34m|[m *   [33m52e84a0[m Merge branch 'main' of https://github.com/Fariz313/Hemon-BE into hawari
+[34m|[m [36m|[m[34m\[m  
+[34m|[m [36m|[m[34m/[m  
+[34m|[m[34m/[m[36m|[m   
+* [36m|[m   [33mb34d33c[m Merge pull request #2 from Fariz313/hawari
+[1;32m|[m[1;33m\[m [36m\[m  
+* [1;33m\[m [36m\[m   [33mada521f[m Merge pull request #1 from Fariz313/hawari
+[1;34m|[m[1;35m\[m [1;33m\[m [36m\[m  
+[1;34m|[m [1;35m|[m [1;33m|[m * [33m0f05a1a[m bersenamlah wahai anak tua
+[1;34m|[m [1;35m|[m [1;33m|[m[1;33m/[m  
+[1;34m|[m [1;35m|[m * [33m28a88bd[m updating layout a little
+[1;34m|[m [1;35m|[m[1;35m/[m  
+[1;34m|[m * [33mdda8d97[m updating 3 features
+[1;34m|[m[1;34m/[m  
+* [33m18a5b33[m[33m ([m[1;32mmain[m[33m)[m add sanctum
+* [33m1c44f7f[m Add sanctum
+* [33m7fbc1b9[m Intialize

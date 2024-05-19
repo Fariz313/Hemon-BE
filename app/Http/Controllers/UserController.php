@@ -13,6 +13,11 @@ class UserController extends Controller
     public function index()
     {
         //
+
+        if (request()->segment(1) == 'api') return response()->json([
+            'error' => false,
+            'list' => $prods,
+        ]);
     }
 
     /**

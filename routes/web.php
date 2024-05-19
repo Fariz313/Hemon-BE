@@ -30,7 +30,7 @@ Route::get('logout', [UserAuthController::class,'logout']);
 Route::get('register', [UserController::class,'register']);
 Route::middleware('auth')->group(function () {
     Route::get('logged', [UserController::class,'logged']);
-    Route::resource('assessment', AssessmentController::class);
+    // Route::resource('assessment', AssessmentController::class);
     Route::resource('assessment', AssessmentController::class);
     Route::resource('chatbot', ChatbotController::class);
     Route::resource('consult', ConsultController::class);

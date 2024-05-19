@@ -16,6 +16,13 @@ class ConsultController extends Controller
     {
         //
 
+        $doctors = User::where('role', 'doctor')->get();
+
+        if (request()->segment(1) == 'api') return response()->json([
+            'error' => false,
+            'list' => $doctors,
+        ]);
+
         $opposite_role = '';
         if (auth()->user()->role == 'user') {
             $opposite_role = 'doctor';
@@ -28,6 +35,16 @@ class ConsultController extends Controller
             'user' => auth()->user(),
             'opposite_users' => $opposite_users,
         ]);
+    }
+
+    public function get_consult_detail () {
+        if (request()->segment(1) == 'api') {
+            $consults = Consult::orderBy('created_at', 'ASC')->get();
+            return response()->json([
+                'error' => false,
+                'list' => $consults,
+            ]);
+        }   
     }
 
     /**
@@ -48,6 +65,7 @@ class ConsultController extends Controller
         //
 
         $chat = new Consult;
+
 
         $chat->message = $request->message;
         $chat->sender_role = $request->sender_role;

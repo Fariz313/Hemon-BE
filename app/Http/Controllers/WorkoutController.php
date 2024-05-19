@@ -15,6 +15,14 @@ class WorkoutController extends Controller
     {
         //
 
+        if (request()->segment(1) == 'api') {
+            $all_workout = Workout::get();
+            return response()->json([
+                'error' => false,
+                'list' => $all_workout,
+            ]);
+        }
+
         $finished_list = Workout::whereDate('created_at', now()->today())->where('user_email', auth()->user()->email)->orderBy('created_at', 'DESC')->get();
 
         $workout_list = [
@@ -49,19 +57,32 @@ class WorkoutController extends Controller
     {
         //
 
-        $finished_workout = Workout::whereDate('created_at', now()->today())->where([
-            ['user_email', '=', auth()->user()->email],
-            ['workout_id', '=', $request->workout_id],
-        ])->first();
-
-        if (isset($finished_workout)) {
-            return redirect('/senam');
+        $finished_workout = null;
+        if (request()->segment(1) == 'api') {
+            $finished_workout = Workout::whereDate('created_at', now()->today())->where([
+                ['user_email', '=', $request->email],
+                ['workout_id', '=', $request->workout_id],
+            ])->first();
+        } else {
+            $finished_workout = Workout::whereDate('created_at', now()->today())->where([
+                ['user_email', '=', auth()->user()->email],
+                ['workout_id', '=', $request->workout_id],
+            ])->first();
+    
+            if (isset($finished_workout)) {
+                return redirect('/senam');
+            }
         }
 
         $workout = new Workout;
 
         $workout->workout_id = $request->workout_id;
-        $workout->user_email = auth()->user()->email;
+        if (request()->segment(1) == 'api') {
+            $workout->user_email = $request->email;
+        } else {
+            $workout->user_email = auth()->user()->email;
+        }
+        
 
         $workout->save();
 
