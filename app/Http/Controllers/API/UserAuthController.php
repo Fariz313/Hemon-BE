@@ -22,6 +22,13 @@ class UserAuthController extends Controller
 
         $user = User::create($data);
 
+        if (request()->segment(1) == 'api') return response()->json([
+            'error' => false,
+            'email' => $user->email,
+            'name' => $user->name,
+            'role' => $user->role,
+        ]);
+
         return response([ 'user' => $user]);
     }
 
@@ -36,8 +43,19 @@ class UserAuthController extends Controller
             $request->session()->regenerate();
  
             // return redirect()->intended('dashboard');
+            if (request()->segment(1) == 'api') return response()->json([
+                'error' => false,
+                'email' => $user->email,
+                'name' => $user->name,
+                'role' => $user->role,
+            ]);
+
             return redirect()->intended('dashboard');
         }
+
+        if (request()->segment(1) == 'api') return response()->json([
+            'error' => true,
+        ]);
  
         return back()->withErrors([
             'email' => 'Maaf Email atau Password Anda Salah!',

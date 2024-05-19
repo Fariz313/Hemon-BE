@@ -15,6 +15,14 @@ class AssessmentController extends Controller
     {
         //
 
+        if (request()->segment(1) == 'api') {
+            $assessments = Assessment::orderBy('created_at', 'DESC')->get();
+            return response()->json([
+                'error' => false,
+                'list' => $assessments,
+            ]);
+        }   
+
         $assessments = Assessment::orderBy('created_at', 'DESC')->where('user_email', auth()->user()->email)->get();
         return view('assessment.history', [
             'title' => 'Riwayat Asesmen',
@@ -102,8 +110,13 @@ class AssessmentController extends Controller
         
         $assessment->result = $result;
         
+        $assessment->user_email = '';
+        if (request()->segment(1) == 'api') {
+            $assessment->user_email = $request->email;
+        } else {
+            $assessment->user_email = auth()->user()->email;
+        }
         
-        $assessment->user_email = auth()->user()->email;
 
         $assessment->save();
 

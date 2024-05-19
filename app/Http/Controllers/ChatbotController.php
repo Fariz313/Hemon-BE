@@ -17,7 +17,15 @@ class ChatbotController extends Controller
     {
         //
 
-        $chats = Chatbot::get();
+        if (request()->segment(1) == 'api') {
+            $chats = Chatbot::orderBy('created_at', 'ASC')->get();
+            return response()->json([
+                'error' => false,
+                'list' => $chats,
+            ]);
+        }   
+
+        $chats = Chatbot::where('user_email', auth()->user()->email)->get();
         return view('chatbot.index', [
             'title' => 'Chatbot',
             'chats' => $chats,
@@ -62,8 +70,13 @@ class ChatbotController extends Controller
             'content-type' => 'application/json',
         ])->post('https://chatgpt-api8.p.rapidapi.com/', $payload);
 
+        $chat->user_email = '';
+        if (request()->segment(1) == 'api') {
+            $chat->user_email = $request->email;
+        } else {
+            $chat->user_email = auth()->user()->email;
+        }
         
-        $chat->user_email = auth()->user()->email;
         if($response->ok()) {
             $chat->reply = $response['text'];
             $chat->save();

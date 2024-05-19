@@ -2,6 +2,8 @@
 
 @section('title', 'Dashboard')
 
+@section('user_name', auth()->user()->name)
+
 @section('add_head_script')
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 @endsection
