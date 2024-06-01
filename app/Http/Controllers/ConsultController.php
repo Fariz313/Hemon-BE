@@ -77,6 +77,13 @@ class ConsultController extends Controller
 
         $chat->save();
 
+        if (request()->segment(1) == 'api') {
+            return response()->json([
+                'error' => false,
+                'chat' => $chat,
+            ]);
+        }   
+
         return redirect('/consult');
     }
 
