@@ -22,12 +22,12 @@ class UserAuthController extends Controller
 
         $user = User::create($data);
 
-        if (request()->segment(1) == 'api') return response()->json([
-            'error' => false,
-            'email' => $user->email,
-            'name' => $user->name,
-            'role' => $user->role,
-        ]);
+        // if (request()->segment(1) == 'api') return response()->json([
+        //     'error' => false,
+        //     'email' => $user->email,
+        //     'name' => $user->name,
+        //     'role' => $user->role,
+        // ]);
 
         return response([ 'user' => $user]);
     }
@@ -43,24 +43,36 @@ class UserAuthController extends Controller
             $request->session()->regenerate();
  
             // return redirect()->intended('dashboard');
-            if (request()->segment(1) == 'api') return response()->json([
-                'error' => false,
-                'email' => $user->email,
-                'name' => $user->name,
-                'role' => $user->role,
-            ]);
+            // if (request()->segment(1) == 'api') return response()->json([
+            //     'error' => false,
+            //     'email' => $user->email,
+            //     'name' => $user->name,
+            //     'role' => $user->role,
+            // ]);
 
             return redirect()->intended('dashboard');
         }
 
-        if (request()->segment(1) == 'api') return response()->json([
-            'error' => true,
-        ]);
+        // if (request()->segment(1) == 'api') return response()->json([
+        //     'error' => true,
+        // ]);
  
         return back()->withErrors([
             'email' => 'Maaf Email atau Password Anda Salah!',
         ])->onlyInput('email');
 
+    }
+
+    public function register_mobile(Request $request) {
+        $user = new User;
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+
+        $user->save();
+
+        return response(['user' => $user]);
     }
 
     public function logout() {

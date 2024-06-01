@@ -16,7 +16,7 @@ class WorkoutController extends Controller
         //
 
         if (request()->segment(1) == 'api') {
-            $all_workout = Workout::get();
+            $all_workout = Workout::orderBy('created_at', 'DESC')->get();
             return response()->json([
                 'error' => false,
                 'list' => $all_workout,

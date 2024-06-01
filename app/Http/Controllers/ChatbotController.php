@@ -84,7 +84,12 @@ class ChatbotController extends Controller
             $chat->reply = 'Mohon maaf, layanan chatbot sedang tidak dapat digunakan';
         }
         
-
+        if (request()->segment(1) == 'api') {
+            return response()->json([
+                'error' => false,
+                'chat' => $chat,
+            ]);
+        } 
         
 
         return redirect('/chatbot');

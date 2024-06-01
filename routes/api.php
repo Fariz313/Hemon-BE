@@ -11,12 +11,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
+// Route::get('/user', function (Request $request) {
+//     return $request->user();
+// })->middleware('auth:sanctum');
 Route::get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:sanctum');
+});
 
 Route::post('login', [UserAuthController::class,'login']);
 Route::post('register', [UserAuthController::class,'register']);
+Route::post('mobile/register', [UserAuthController::class,'register_mobile']);
 
 
 Route::get('consultDetail', [ConsultController::class, 'get_consult_detail']);
@@ -26,4 +30,3 @@ Route::resource('consult', ConsultController::class);
 Route::resource('senam', WorkoutController::class);
 Route::resource('klinik', KlinikController::class);
 Route::resource('tracking', TrackingController::class);
-Route::post('/consult/start', [ConsultController::class, 'start']);
